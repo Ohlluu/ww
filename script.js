@@ -64,49 +64,94 @@ class WhiteishWednesdayGame {
     }
     
     setupEventListeners() {
+        console.log('🔧 Setting up event listeners...');
+        
         // Player selection
-        document.querySelectorAll('.player-btn').forEach(btn => {
+        const playerBtns = document.querySelectorAll('.player-btn');
+        console.log('Found player buttons:', playerBtns.length);
+        playerBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
+                console.log('Player button clicked:', e.target.dataset.player);
                 this.switchPlayer(e.target.dataset.player);
             });
         });
         
         // Action buttons
-        document.getElementById('soloButton').addEventListener('click', () => {
-            this.handleSoloAnswer();
-        });
+        const soloBtn = document.getElementById('soloButton');
+        if (soloBtn) {
+            soloBtn.addEventListener('click', () => {
+                console.log('Solo button clicked');
+                this.handleSoloAnswer();
+            });
+        } else {
+            console.error('Solo button not found!');
+        }
         
-        document.getElementById('spinWheelButton').addEventListener('click', () => {
-            this.spinWheel();
-        });
+        const spinWheelBtn = document.getElementById('spinWheelButton');
+        if (spinWheelBtn) {
+            spinWheelBtn.addEventListener('click', () => {
+                console.log('Spin wheel button clicked');
+                this.spinWheel();
+            });
+        } else {
+            console.error('Spin wheel button not found!');
+        }
+        
+        // Center wheel spin button
+        const spinBtn = document.getElementById('spinButton');
+        if (spinBtn) {
+            spinBtn.addEventListener('click', () => {
+                console.log('Center spin button clicked');
+                this.spinWheel();
+            });
+        } else {
+            console.error('Center spin button not found!');
+        }
         
         // Scoring buttons
-        document.getElementById('correctButton').addEventListener('click', () => {
-            this.handleAnswer(true);
-        });
+        const correctBtn = document.getElementById('correctButton');
+        if (correctBtn) {
+            correctBtn.addEventListener('click', () => {
+                console.log('Correct button clicked');
+                this.handleAnswer(true);
+            });
+        }
         
-        document.getElementById('wrongButton').addEventListener('click', () => {
-            this.handleAnswer(false);
-        });
+        const wrongBtn = document.getElementById('wrongButton');
+        if (wrongBtn) {
+            wrongBtn.addEventListener('click', () => {
+                console.log('Wrong button clicked');
+                this.handleAnswer(false);
+            });
+        }
         
         // Timer buttons
-        document.getElementById('rushTimerStartButton').addEventListener('click', () => {
-            this.startRushTimer();
-        });
+        const rushTimerBtn = document.getElementById('rushTimerStartButton');
+        if (rushTimerBtn) {
+            rushTimerBtn.addEventListener('click', () => {
+                console.log('Rush timer button clicked');
+                this.startRushTimer();
+            });
+        }
         
-        document.getElementById('extendedTimerStartButton').addEventListener('click', () => {
-            this.startExtendedTimer();
-        });
+        const extendedTimerBtn = document.getElementById('extendedTimerStartButton');
+        if (extendedTimerBtn) {
+            extendedTimerBtn.addEventListener('click', () => {
+                console.log('Extended timer button clicked');
+                this.startExtendedTimer();
+            });
+        }
         
         // New game button
-        document.getElementById('newGameButton').addEventListener('click', () => {
-            this.resetGame();
-        });
+        const newGameBtn = document.getElementById('newGameButton');
+        if (newGameBtn) {
+            newGameBtn.addEventListener('click', () => {
+                console.log('New game button clicked');
+                this.resetGame();
+            });
+        }
         
-        // Wheel spin button
-        document.getElementById('spinButton').addEventListener('click', () => {
-            this.spinWheel();
-        });
+        console.log('✅ Event listeners setup complete');
     }
     
     switchPlayer(playerKey) {
@@ -159,7 +204,13 @@ class WhiteishWednesdayGame {
     }
     
     spinWheel() {
+        console.log('🎰 Spin wheel called');
+        console.log('Is spinning:', this.isSpinning);
+        console.log('Current player:', this.currentPlayer);
+        console.log('Spins left:', this.players[this.currentPlayer].spinsLeft);
+        
         if (this.isSpinning || this.players[this.currentPlayer].spinsLeft <= 0) {
+            console.log('❌ Spin blocked - already spinning or no spins left');
             return;
         }
         
@@ -219,24 +270,41 @@ class WhiteishWednesdayGame {
     }
     
     showResult(result) {
+        console.log('📋 Showing result:', result);
         const resultSection = document.getElementById('resultSection');
         const resultCaller = document.getElementById('resultCaller');
         const resultBonus = document.getElementById('resultBonus');
         const resultDescription = document.getElementById('resultDescription');
         
+        if (!resultSection) {
+            console.error('Result section not found!');
+            return;
+        }
+        
         // Update result display
-        resultCaller.textContent = this.formatCallerName(result.caller);
+        if (resultCaller) {
+            resultCaller.textContent = this.formatCallerName(result.caller);
+        }
         
         if (result.bonus) {
-            resultBonus.textContent = this.formatBonusName(result.bonus);
-            resultBonus.style.display = 'block';
-            resultDescription.textContent = this.bonuses[result.bonus];
+            if (resultBonus) {
+                resultBonus.textContent = this.formatBonusName(result.bonus);
+                resultBonus.style.display = 'block';
+            }
+            if (resultDescription) {
+                resultDescription.textContent = this.bonuses[result.bonus];
+            }
         } else {
-            resultBonus.style.display = 'none';
-            resultDescription.textContent = this.bonuses[''];
+            if (resultBonus) {
+                resultBonus.style.display = 'none';
+            }
+            if (resultDescription) {
+                resultDescription.textContent = this.bonuses[''];
+            }
         }
         
         resultSection.classList.add('show');
+        console.log('✅ Result section updated and shown');
         
         // Show timer if Rush Time or Extended Time
         if (result.bonus === 'rush-time') {
@@ -255,25 +323,43 @@ class WhiteishWednesdayGame {
     }
     
     showRushTimer() {
+        console.log('⏰ Showing Rush Timer');
         const timerSection = document.getElementById('rushTimerSection');
-        timerSection.classList.add('show');
-        
-        // Reset timer display
-        document.getElementById('rushTimerNumber').textContent = '5';
-        const startBtn = document.getElementById('rushTimerStartButton');
-        startBtn.disabled = false;
-        startBtn.style.opacity = '1';
+        if (timerSection) {
+            timerSection.classList.add('show');
+            
+            // Reset timer display
+            const timerNumber = document.getElementById('rushTimerNumber');
+            if (timerNumber) timerNumber.textContent = '5';
+            
+            const startBtn = document.getElementById('rushTimerStartButton');
+            if (startBtn) {
+                startBtn.disabled = false;
+                startBtn.style.opacity = '1';
+            }
+        } else {
+            console.error('Rush timer section not found!');
+        }
     }
     
     showExtendedTimer() {
+        console.log('⏰ Showing Extended Timer');
         const timerSection = document.getElementById('extendedTimerSection');
-        timerSection.classList.add('show');
-        
-        // Reset timer display
-        document.getElementById('extendedTimerNumber').textContent = '10';
-        const startBtn = document.getElementById('extendedTimerStartButton');
-        startBtn.disabled = false;
-        startBtn.style.opacity = '1';
+        if (timerSection) {
+            timerSection.classList.add('show');
+            
+            // Reset timer display
+            const timerNumber = document.getElementById('extendedTimerNumber');
+            if (timerNumber) timerNumber.textContent = '10';
+            
+            const startBtn = document.getElementById('extendedTimerStartButton');
+            if (startBtn) {
+                startBtn.disabled = false;
+                startBtn.style.opacity = '1';
+            }
+        } else {
+            console.error('Extended timer section not found!');
+        }
     }
     
     startRushTimer() {
@@ -644,8 +730,18 @@ class WhiteishWednesdayGame {
 // Initialize the game when page loads
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🎯 Ebro in the Morning - White-ish Wednesday Game Loading...');
-    const game = new WhiteishWednesdayGame();
-    console.log('🎮 Game initialized successfully!');
+    
+    // Add a small delay to ensure all elements are rendered
+    setTimeout(() => {
+        console.log('🔧 Starting game initialization...');
+        const game = new WhiteishWednesdayGame();
+        
+        // Store game instance globally for debugging
+        window.gameInstance = game;
+        
+        console.log('🎮 Game initialized successfully!');
+        console.log('🔍 Debug: You can access the game via window.gameInstance');
+    }, 100);
 });
 
 // Add keyboard shortcuts
