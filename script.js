@@ -21,7 +21,7 @@ class WhiteishWednesdayGame {
         this.bonuses = {
             '': 'Regular caller help',
             'high-stakes': 'Correct = +2 points, Wrong = -1 point',
-            'extended-time': 'Caller gets extra time to think',
+            'extended-time': 'Caller gets 10 seconds extra to hear the song',
             'rush-time': 'Caller has only 5 seconds to answer',
             'power-play': 'If wrong, automatically re-spin the wheel'
         };
@@ -89,9 +89,13 @@ class WhiteishWednesdayGame {
             this.handleAnswer(false);
         });
         
-        // Timer button
-        document.getElementById('timerStartButton').addEventListener('click', () => {
-            this.startTimer();
+        // Timer buttons
+        document.getElementById('rushTimerStartButton').addEventListener('click', () => {
+            this.startRushTimer();
+        });
+        
+        document.getElementById('extendedTimerStartButton').addEventListener('click', () => {
+            this.startExtendedTimer();
         });
         
         // New game button
@@ -234,10 +238,14 @@ class WhiteishWednesdayGame {
         
         resultSection.classList.add('show');
         
-        // Show timer if Rush Time
+        // Show timer if Rush Time or Extended Time
         if (result.bonus === 'rush-time') {
             setTimeout(() => {
-                this.showTimer();
+                this.showRushTimer();
+            }, 2000);
+        } else if (result.bonus === 'extended-time') {
+            setTimeout(() => {
+                this.showExtendedTimer();
             }, 2000);
         } else {
             setTimeout(() => {
@@ -246,24 +254,35 @@ class WhiteishWednesdayGame {
         }
     }
     
-    showTimer() {
-        const timerSection = document.getElementById('timerSection');
+    showRushTimer() {
+        const timerSection = document.getElementById('rushTimerSection');
         timerSection.classList.add('show');
         
         // Reset timer display
-        document.getElementById('timerNumber').textContent = '5';
-        const startBtn = document.getElementById('timerStartButton');
+        document.getElementById('rushTimerNumber').textContent = '5';
+        const startBtn = document.getElementById('rushTimerStartButton');
         startBtn.disabled = false;
         startBtn.style.opacity = '1';
     }
     
-    startTimer() {
+    showExtendedTimer() {
+        const timerSection = document.getElementById('extendedTimerSection');
+        timerSection.classList.add('show');
+        
+        // Reset timer display
+        document.getElementById('extendedTimerNumber').textContent = '10';
+        const startBtn = document.getElementById('extendedTimerStartButton');
+        startBtn.disabled = false;
+        startBtn.style.opacity = '1';
+    }
+    
+    startRushTimer() {
         if (this.timerActive) return;
         
         this.timerActive = true;
         let timeLeft = 5;
-        const timerNumber = document.getElementById('timerNumber');
-        const startBtn = document.getElementById('timerStartButton');
+        const timerNumber = document.getElementById('rushTimerNumber');
+        const startBtn = document.getElementById('rushTimerStartButton');
         
         startBtn.disabled = true;
         startBtn.style.opacity = '0.5';
@@ -273,7 +292,7 @@ class WhiteishWednesdayGame {
             timerNumber.textContent = timeLeft;
             
             if (timeLeft <= 0) {
-                this.stopTimer();
+                this.stopTimer('rush');
                 this.showScoring();
             }
         }, 1000);
@@ -282,21 +301,50 @@ class WhiteishWednesdayGame {
         this.addTimerEffects();
     }
     
-    stopTimer() {
+    startExtendedTimer() {
+        if (this.timerActive) return;
+        
+        this.timerActive = true;
+        let timeLeft = 10;
+        const timerNumber = document.getElementById('extendedTimerNumber');
+        const startBtn = document.getElementById('extendedTimerStartButton');
+        
+        startBtn.disabled = true;
+        startBtn.style.opacity = '0.5';
+        
+        this.timerInterval = setInterval(() => {
+            timeLeft--;
+            timerNumber.textContent = timeLeft;
+            
+            if (timeLeft <= 0) {
+                this.stopTimer('extended');
+                this.showScoring();
+            }
+        }, 1000);
+        
+        // Add extended time effects
+        this.addTimerEffects();
+    }
+    
+    stopTimer(type = 'rush') {
         if (this.timerInterval) {
             clearInterval(this.timerInterval);
             this.timerInterval = null;
         }
         this.timerActive = false;
         
-        const timerSection = document.getElementById('timerSection');
+        const timerSectionId = type === 'extended' ? 'extendedTimerSection' : 'rushTimerSection';
+        const timerSection = document.getElementById(timerSectionId);
         setTimeout(() => {
             timerSection.classList.remove('show');
         }, 1000);
     }
     
     showScoring() {
-        document.querySelector('.scoring-section').style.display = 'block';
+        const scoringSection = document.querySelector('.scoring-section.compact');
+        if (scoringSection) {
+            scoringSection.style.display = 'block';
+        }
         
         // Update button text based on current result
         if (this.currentResult && this.currentResult.bonus === 'high-stakes') {
@@ -413,8 +461,12 @@ class WhiteishWednesdayGame {
     
     hideAllSections() {
         document.getElementById('resultSection').classList.remove('show');
-        document.getElementById('timerSection').classList.remove('show');
-        document.querySelector('.scoring-section').style.display = 'none';
+        document.getElementById('rushTimerSection').classList.remove('show');
+        document.getElementById('extendedTimerSection').classList.remove('show');
+        const scoringSection = document.querySelector('.scoring-section.compact');
+        if (scoringSection) {
+            scoringSection.style.display = 'none';
+        }
     }
     
     formatCallerName(caller) {
