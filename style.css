@@ -338,10 +338,11 @@ body {
     width: 50%;
     height: 50%;
     transform-origin: 100% 100%;
-    clip-path: polygon(100% 100%, 0% 100%, 15.3% 84.7%);
+    clip-path: polygon(100% 100%, 0% 100%, 15.45% 84.55%);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    padding-top: 20px;
 }
 
 /* 20 segments = 18 degrees each */
@@ -367,28 +368,34 @@ body {
 .wheel-segment:nth-child(20) { transform: rotate(342deg); background: linear-gradient(135deg, var(--purple), var(--electric-cyan)); }
 
 .segment-content {
-    transform: rotate(-9deg) translateY(-40px) translateX(-20px);
+    transform: rotate(-9deg);
     text-align: center;
     pointer-events: none;
-    width: 80px;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
 }
 
 .caller-name {
     font-family: 'Orbitron', monospace;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: 900;
     color: white;
     text-shadow: 3px 3px 6px rgba(0,0,0,0.9);
-    margin-bottom: 0.3rem;
-    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+    text-transform: uppercase;
 }
 
 .bonus-text {
-    font-size: 0.5rem;
+    font-size: 0.45rem;
     font-weight: 700;
     color: white;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
-    line-height: 1.1;
+    line-height: 1;
+    text-transform: uppercase;
 }
 
 .wheel-pointer {
