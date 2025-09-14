@@ -161,12 +161,14 @@ body {
 }
 
 .players-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    justify-content: space-between;
     gap: var(--space-md);
 }
 
 .player-card {
+    flex: 1;
+    min-width: 0;
     background: var(--card-bg);
     border: 2px solid var(--border-color);
     border-radius: var(--radius-md);
@@ -927,7 +929,6 @@ body {
     }
     
     .players-grid {
-        grid-template-columns: repeat(4, 1fr);
         gap: var(--space-sm);
     }
     
@@ -962,7 +963,6 @@ body {
     }
     
     .players-grid {
-        grid-template-columns: repeat(4, 1fr);
         gap: var(--space-xs);
     }
     
