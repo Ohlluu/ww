@@ -330,7 +330,66 @@
                     </div>
                 </section>
 
-            <!-- Wheel Words Section -->
+            <!-- Game Controls -->
+            <section class="controls-section">
+            <div class="section-header">
+                <h2 class="section-title">GAME CONTROLS</h2>
+            </div>
+            <div class="current-player">
+                <div class="current-label">CURRENT PLAYER:</div>
+                <div class="current-name" id="currentPlayer">LAURA STYLEZ</div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="action-btn solo-btn" id="soloButton">
+                    <span class="btn-text">ANSWER</span>
+                    <span class="btn-subtext">SOLO</span>
+                </button>
+                <button class="action-btn spin-wheel-btn" id="spinWheelButton">
+                    <span class="btn-text">SPIN</span>
+                    <span class="btn-subtext">WHEEL</span>
+                </button>
+            </div>
+
+            <div class="player-selector">
+                <button class="player-btn active" data-player="laura">LAURA</button>
+                <button class="player-btn" data-player="rosenberg">ROSENBERG</button>
+                <button class="player-btn" data-player="shani">SHANI</button>
+                <button class="player-btn" data-player="ebro">EBRO</button>
+            </div>
+        </section>
+        </div>
+
+        <!-- Bonus Info and Wheel Segments Row -->
+        <div class="bonus-segments-row">
+            <section class="bonus-info">
+                <div class="section-header">
+                    <h2 class="section-title">GAME BONUSES</h2>
+                </div>
+                <div class="bonus-grid">
+                    <div class="bonus-card">
+                        <div class="bonus-icon">💎</div>
+                        <div class="bonus-name">HIGH STAKES</div>
+                        <div class="bonus-desc">+2 points if correct, -1 if wrong</div>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-icon">⏰</div>
+                        <div class="bonus-name">EXTENDED TIME</div>
+                        <div class="bonus-desc">Caller gets 10 seconds extra thinking time</div>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-icon">⚡</div>
+                        <div class="bonus-name">RUSH TIME</div>
+                        <div class="bonus-desc">Caller gets only 5 seconds to answer</div>
+                    </div>
+                    <div class="bonus-card">
+                        <div class="bonus-icon">🔄</div>
+                        <div class="bonus-name">POWER PLAY</div>
+                        <div class="bonus-desc">Re-spin the wheel if answer is wrong</div>
+                    </div>
+                </div>
+            </section>
+
             <section class="wheel-words-section">
                 <div class="section-header">
                     <h2 class="section-title">WHEEL SEGMENTS</h2>
@@ -368,65 +427,7 @@
                     </div>
                 </div>
             </section>
-
-            <!-- Game Controls -->
-            <section class="controls-section">
-            <div class="section-header">
-                <h2 class="section-title">GAME CONTROLS</h2>
-            </div>
-            <div class="current-player">
-                <div class="current-label">CURRENT PLAYER:</div>
-                <div class="current-name" id="currentPlayer">LAURA STYLEZ</div>
-            </div>
-            
-            <div class="action-buttons">
-                <button class="action-btn solo-btn" id="soloButton">
-                    <span class="btn-text">ANSWER</span>
-                    <span class="btn-subtext">SOLO</span>
-                </button>
-                <button class="action-btn spin-wheel-btn" id="spinWheelButton">
-                    <span class="btn-text">SPIN</span>
-                    <span class="btn-subtext">WHEEL</span>
-                </button>
-            </div>
-
-            <div class="player-selector">
-                <button class="player-btn active" data-player="laura">LAURA</button>
-                <button class="player-btn" data-player="rosenberg">ROSENBERG</button>
-                <button class="player-btn" data-player="shani">SHANI</button>
-                <button class="player-btn" data-player="ebro">EBRO</button>
-            </div>
-        </section>
         </div>
-
-        <!-- Bonus Info -->
-        <section class="bonus-info">
-            <div class="section-header">
-                <h2 class="section-title">GAME BONUSES</h2>
-            </div>
-            <div class="bonus-grid">
-                <div class="bonus-card">
-                    <div class="bonus-icon">💎</div>
-                    <div class="bonus-name">HIGH STAKES</div>
-                    <div class="bonus-desc">+2 points if correct, -1 if wrong</div>
-                </div>
-                <div class="bonus-card">
-                    <div class="bonus-icon">⏰</div>
-                    <div class="bonus-name">EXTENDED TIME</div>
-                    <div class="bonus-desc">Caller gets 10 seconds extra thinking time</div>
-                </div>
-                <div class="bonus-card">
-                    <div class="bonus-icon">⚡</div>
-                    <div class="bonus-name">RUSH TIME</div>
-                    <div class="bonus-desc">Caller gets only 5 seconds to answer</div>
-                </div>
-                <div class="bonus-card">
-                    <div class="bonus-icon">🔄</div>
-                    <div class="bonus-name">POWER PLAY</div>
-                    <div class="bonus-desc">Re-spin the wheel if answer is wrong</div>
-                </div>
-            </div>
-        </section>
 
     </main>
 

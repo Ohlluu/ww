@@ -360,10 +360,9 @@ body {
 }
 
 .wheel-controls-row.compact .wheel-section,
-.wheel-controls-row.compact .controls-section,
-.wheel-controls-row.compact .wheel-words-section {
-    flex: 0 0 150px;
-    min-width: 120px;
+.wheel-controls-row.compact .controls-section {
+    flex: 0 0 200px;
+    min-width: 150px;
 }
 
 /* Active state for result and timer sections */
@@ -420,9 +419,24 @@ body {
     border-color: var(--accent-green);
 }
 
+/* Bonus and Segments Row */
+.bonus-segments-row {
+    display: flex;
+    gap: var(--space-lg);
+    align-items: flex-start;
+    margin-bottom: var(--space-xl);
+}
+
+.bonus-segments-row .bonus-info {
+    flex: 1;
+}
+
+.bonus-segments-row .wheel-words-section {
+    flex: 1.5;
+}
+
 /* Wheel Words Section */
 .wheel-words-section {
-    flex: 1;
     background: var(--card-bg);
     border-radius: var(--radius-md);
     padding: var(--space-lg);
@@ -1148,11 +1162,20 @@ body {
     }
     
     .wheel-controls-row .wheel-section,
-    .wheel-controls-row .controls-section,
-    .wheel-controls-row .wheel-words-section {
+    .wheel-controls-row .controls-section {
         flex: 0 0 calc(50% - var(--space-sm));
-        min-width: 150px;
+        min-width: 200px;
         margin-bottom: var(--space-sm);
+    }
+    
+    .bonus-segments-row {
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+    
+    .bonus-segments-row .bonus-info,
+    .bonus-segments-row .wheel-words-section {
+        flex: 1;
     }
     
     .wheel-controls-row .result-section,
