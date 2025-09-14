@@ -339,9 +339,37 @@ body {
 /* Wheel and Controls Row */
 .wheel-controls-row {
     display: flex;
-    gap: var(--space-xl);
+    gap: var(--space-md);
     align-items: flex-start;
     margin-bottom: var(--space-xl);
+    transition: all 0.3s ease;
+}
+
+/* Default state - result and timers are hidden */
+.wheel-controls-row .result-section,
+.wheel-controls-row .timer-section {
+    display: none;
+    flex: 0 0 200px;
+    min-width: 180px;
+}
+
+/* When result/timer is active, show them and shrink other sections */
+.wheel-controls-row.compact .result-section.active,
+.wheel-controls-row.compact .timer-section.active {
+    display: flex;
+}
+
+.wheel-controls-row.compact .wheel-section,
+.wheel-controls-row.compact .controls-section,
+.wheel-controls-row.compact .wheel-words-section {
+    flex: 0 0 150px;
+    min-width: 120px;
+}
+
+/* Active state for result and timer sections */
+.result-section.active,
+.timer-section.active {
+    display: flex !important;
 }
 
 /* Wheel Section */
@@ -352,7 +380,100 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    min-height: 500px;
+    min-height: 400px;
+    background: var(--card-bg);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+/* Result Section */
+.result-section {
+    background: var(--card-bg);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    text-align: center;
+    border: 2px solid var(--border-color);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Timer Sections */
+.timer-section {
+    background: var(--card-bg);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    text-align: center;
+    border: 2px solid var(--border-color);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-section.rush-timer {
+    border-color: var(--accent-red);
+}
+
+.timer-section.extended-timer {
+    border-color: var(--accent-green);
+}
+
+/* Wheel Words Section */
+.wheel-words-section {
+    flex: 1;
+    background: var(--card-bg);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.wheel-words-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.words-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
+}
+
+.word-item {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.3rem 0.5rem;
+    border-radius: var(--radius-sm);
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+}
+
+.word-item.regular {
+    background: #3b82f6;
+}
+
+.word-item.high-stakes {
+    background: #ef4444;
+}
+
+.word-item.extended-time {
+    background: #10b981;
+}
+
+.word-item.rush-time {
+    background: #f59e0b;
+}
+
+.word-item.power-play {
+    background: #8b5cf6;
 }
 
 .wheel-container {
@@ -1017,6 +1138,27 @@ body {
     .wheel-controls-row {
         flex-direction: column;
         gap: var(--space-md);
+    }
+    
+    /* Mobile: Keep desktop row behavior but allow wrapping */
+    .wheel-controls-row {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .wheel-controls-row .wheel-section,
+    .wheel-controls-row .controls-section,
+    .wheel-controls-row .wheel-words-section {
+        flex: 0 0 calc(50% - var(--space-sm));
+        min-width: 150px;
+        margin-bottom: var(--space-sm);
+    }
+    
+    .wheel-controls-row .result-section,
+    .wheel-controls-row .timer-section {
+        flex: 0 0 calc(50% - var(--space-sm));
+        min-width: 150px;
     }
     
     .controls-section {

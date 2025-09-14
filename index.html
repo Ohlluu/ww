@@ -140,54 +140,53 @@
 
         <!-- Wheel and Controls Row -->
         <div class="wheel-controls-row">
+            <!-- Result Section -->
+            <section class="result-section" id="resultSection">
+                <div class="section-header">
+                    <h2 class="section-title">RESULT</h2>
+                </div>
+                <div class="result-content">
+                    <div class="result-caller" id="resultCaller">READY</div>
+                    <div class="result-bonus" id="resultBonus">TO PLAY</div>
+                    <div class="result-description" id="resultDescription">
+                        Choose Answer Solo or Spin Wheel to begin!
+                    </div>
+                </div>
+            </section>
+
+            <!-- Timer Sections -->
+            <section class="timer-section rush-timer" id="rushTimerSection">
+                <div class="section-header">
+                    <h2 class="section-title">RUSH TIME</h2>
+                </div>
+                <div class="timer-container">
+                    <div class="timer-display">
+                        <div class="timer-number" id="rushTimerNumber">5</div>
+                        <div class="timer-label">SECONDS</div>
+                    </div>
+                    <button class="timer-start-btn" id="rushTimerStartButton">
+                        START TIMER
+                    </button>
+                </div>
+            </section>
+
+            <section class="timer-section extended-timer" id="extendedTimerSection">
+                <div class="section-header">
+                    <h2 class="section-title">EXTENDED TIME</h2>
+                </div>
+                <div class="timer-container">
+                    <div class="timer-display">
+                        <div class="timer-number" id="extendedTimerNumber">10</div>
+                        <div class="timer-label">SECONDS</div>
+                    </div>
+                    <button class="timer-start-btn" id="extendedTimerStartButton">
+                        START TIMER
+                    </button>
+                </div>
+            </section>
+
             <!-- Wheel Section -->
             <section class="wheel-section">
-                <!-- Result Display (overlays wheel) -->
-                <section class="result-section" id="resultSection">
-                    <div class="section-header">
-                        <h2 class="section-title">RESULT</h2>
-                    </div>
-                    <div class="result-content">
-                        <div class="result-caller" id="resultCaller">READY</div>
-                        <div class="result-bonus" id="resultBonus">TO PLAY</div>
-                        <div class="result-description" id="resultDescription">
-                            Choose Answer Solo or Spin Wheel to begin!
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Timer Sections (stack with result when active) -->
-                <section class="timer-section rush-timer" id="rushTimerSection">
-                    <div class="section-header">
-                        <h2 class="section-title">RUSH TIME</h2>
-                    </div>
-                    <div class="timer-container">
-                        <div class="timer-display">
-                            <div class="timer-number" id="rushTimerNumber">5</div>
-                            <div class="timer-label">SECONDS</div>
-                        </div>
-                        <button class="timer-start-btn" id="rushTimerStartButton">
-                            START TIMER
-                        </button>
-                    </div>
-                </section>
-
-                <section class="timer-section extended-timer" id="extendedTimerSection">
-                    <div class="section-header">
-                        <h2 class="section-title">EXTENDED TIME</h2>
-                    </div>
-                    <div class="timer-container">
-                        <div class="timer-display">
-                            <div class="timer-number" id="extendedTimerNumber">10</div>
-                            <div class="timer-label">SECONDS</div>
-                        </div>
-                        <button class="timer-start-btn" id="extendedTimerStartButton">
-                            START TIMER
-                        </button>
-                    </div>
-                </section>
-
-                <!-- Wheel (hidden when result/timer active) -->
                 <div class="wheel-container">
                     <div class="wheel-lights">
                         <div class="light-ring"></div>
@@ -330,6 +329,45 @@
                         </div>
                     </div>
                 </section>
+
+            <!-- Wheel Words Section -->
+            <section class="wheel-words-section">
+                <div class="section-header">
+                    <h2 class="section-title">WHEEL SEGMENTS</h2>
+                </div>
+                <div class="wheel-words-content">
+                    <div class="words-column">
+                        <div class="word-item regular">QUEEN P</div>
+                        <div class="word-item regular">AUBREY</div>
+                        <div class="word-item regular">HOT ROD RICK</div>
+                        <div class="word-item regular">NICKI</div>
+                    </div>
+                    <div class="words-column">
+                        <div class="word-item high-stakes">QUEEN P HIGH STAKES</div>
+                        <div class="word-item high-stakes">AUBREY HIGH STAKES</div>
+                        <div class="word-item high-stakes">HOT ROD RICK HIGH STAKES</div>
+                        <div class="word-item high-stakes">NICKI HIGH STAKES</div>
+                    </div>
+                    <div class="words-column">
+                        <div class="word-item extended-time">QUEEN P EXTENDED TIME</div>
+                        <div class="word-item extended-time">AUBREY EXTENDED TIME</div>
+                        <div class="word-item extended-time">HOT ROD RICK EXTENDED TIME</div>
+                        <div class="word-item extended-time">NICKI EXTENDED TIME</div>
+                    </div>
+                    <div class="words-column">
+                        <div class="word-item rush-time">QUEEN P RUSH TIME</div>
+                        <div class="word-item rush-time">AUBREY RUSH TIME</div>
+                        <div class="word-item rush-time">HOT ROD RICK RUSH TIME</div>
+                        <div class="word-item rush-time">NICKI RUSH TIME</div>
+                    </div>
+                    <div class="words-column">
+                        <div class="word-item power-play">QUEEN P POWER PLAY</div>
+                        <div class="word-item power-play">AUBREY POWER PLAY</div>
+                        <div class="word-item power-play">HOT ROD RICK POWER PLAY</div>
+                        <div class="word-item power-play">NICKI POWER PLAY</div>
+                    </div>
+                </div>
+            </section>
 
             <!-- Game Controls -->
             <section class="controls-section">
