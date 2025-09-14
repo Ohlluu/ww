@@ -947,18 +947,33 @@ body {
 
 /* Mobile Layout */
 @media (max-width: 768px) {
+    .header {
+        padding: var(--space-xs);
+    }
+    
     .header-content {
         flex-direction: column;
-        gap: var(--space-xs);
+        gap: 0.3rem;
         text-align: center;
     }
     
     .show-title {
-        font-size: clamp(1.2rem, 8vw, 2rem);
+        font-size: 1.2rem;
+        margin: 0;
+    }
+    
+    .show-badge {
+        font-size: 0.6rem;
+        margin-top: -0.2rem;
     }
     
     .segment-title h2 {
-        font-size: clamp(1rem, 6vw, 1.5rem);
+        font-size: 0.9rem;
+        margin: 0;
+    }
+    
+    .game-subtitle {
+        font-size: 0.5rem;
     }
     
     .game-container {
@@ -1105,6 +1120,30 @@ body {
 
 /* Small Mobile Layout */
 @media (max-width: 480px) {
+    .header {
+        padding: 0.5rem;
+    }
+    
+    .header-content {
+        gap: 0.2rem;
+    }
+    
+    .show-title {
+        font-size: 1rem;
+    }
+    
+    .show-badge {
+        font-size: 0.5rem;
+    }
+    
+    .segment-title h2 {
+        font-size: 0.8rem;
+    }
+    
+    .game-subtitle {
+        font-size: 0.4rem;
+    }
+    
     .game-container {
         padding: var(--space-xs);
     }
