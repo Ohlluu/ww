@@ -281,10 +281,17 @@ body {
     font-weight: 600;
 }
 
+/* Wheel and Controls Row */
+.wheel-controls-row {
+    display: flex;
+    gap: var(--space-xl);
+    align-items: flex-start;
+    margin-bottom: var(--space-xl);
+}
+
 /* Wheel Section */
 .wheel-section {
-    margin-bottom: var(--space-xl);
-    padding: var(--space-xl) 0;
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -463,9 +470,10 @@ body {
     background: var(--card-bg);
     border-radius: var(--radius-md);
     padding: var(--space-lg);
-    margin-bottom: var(--space-xl);
     text-align: center;
     border: 2px solid var(--border-color);
+    flex: 1;
+    max-width: 400px;
 }
 
 .current-player {
@@ -992,6 +1000,15 @@ body {
     
     .game-container {
         padding: var(--space-sm);
+    }
+    
+    .wheel-controls-row {
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+    
+    .controls-section {
+        max-width: none;
     }
     
     .players-grid {
