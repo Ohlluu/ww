@@ -155,9 +155,17 @@ body {
     border-radius: 2px;
 }
 
+/* Players and Scoring Row */
+.players-scoring-row {
+    display: flex;
+    gap: var(--space-xl);
+    align-items: flex-start;
+    margin-bottom: var(--space-xl);
+}
+
 /* Players Section */
 .players-section {
-    margin-bottom: var(--space-xl);
+    flex: 1;
 }
 
 .players-grid {
@@ -744,9 +752,10 @@ body {
     background: var(--card-bg);
     border-radius: var(--radius-md);
     padding: var(--space-lg);
-    margin-bottom: var(--space-xl);
     text-align: center;
     border: 2px solid var(--border-color);
+    flex-shrink: 0;
+    width: 300px;
 }
 
 .scoring-controls {
@@ -1000,6 +1009,15 @@ body {
     
     .game-container {
         padding: var(--space-sm);
+    }
+    
+    .players-scoring-row {
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+    
+    .scoring-section {
+        width: auto;
     }
     
     .wheel-controls-row {

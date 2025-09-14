@@ -27,12 +27,14 @@
 
     <!-- Main Game Area -->
     <main class="game-container">
-        <!-- Players Section -->
-        <section class="players-section">
-            <div class="section-header">
-                <h2 class="section-title">PLAYERS</h2>
-            </div>
-            <div class="players-grid">
+        <!-- Players and Scoring Row -->
+        <div class="players-scoring-row">
+            <!-- Players Section -->
+            <section class="players-section">
+                <div class="section-header">
+                    <h2 class="section-title">PLAYERS</h2>
+                </div>
+                <div class="players-grid">
                 <div class="player-card" data-player="laura">
                     <div class="player-avatar">
                         <div class="avatar-circle">LS</div>
@@ -114,6 +116,24 @@
                 </div>
             </div>
         </section>
+
+            <!-- Scoring Controls -->
+            <section class="scoring-section">
+                <div class="section-header">
+                    <h2 class="section-title">SCORING</h2>
+                </div>
+                <div class="scoring-controls">
+                    <button class="score-btn correct-btn" id="correctButton">
+                        <span class="score-icon">✓</span>
+                        <span class="score-text">CORRECT</span>
+                    </button>
+                    <button class="score-btn wrong-btn" id="wrongButton">
+                        <span class="score-icon">✗</span>
+                        <span class="score-text">WRONG</span>
+                    </button>
+                </div>
+            </section>
+        </div>
 
         <!-- Wheel and Controls Row -->
         <div class="wheel-controls-row">
@@ -333,23 +353,6 @@
                 </div>
                 <button class="timer-start-btn" id="extendedTimerStartButton">
                     START TIMER
-                </button>
-            </div>
-        </section>
-
-        <!-- Scoring Controls -->
-        <section class="scoring-section">
-            <div class="section-header">
-                <h2 class="section-title">SCORING</h2>
-            </div>
-            <div class="scoring-controls">
-                <button class="score-btn correct-btn" id="correctButton">
-                    <span class="score-icon">✓</span>
-                    <span class="score-text">CORRECT</span>
-                </button>
-                <button class="score-btn wrong-btn" id="wrongButton">
-                    <span class="score-icon">✗</span>
-                    <span class="score-text">WRONG</span>
                 </button>
             </div>
         </section>
