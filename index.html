@@ -139,6 +139,52 @@
         <div class="wheel-controls-row">
             <!-- Wheel Section -->
             <section class="wheel-section">
+                <!-- Result Display (overlays wheel) -->
+                <section class="result-section" id="resultSection">
+                    <div class="section-header">
+                        <h2 class="section-title">RESULT</h2>
+                    </div>
+                    <div class="result-content">
+                        <div class="result-caller" id="resultCaller">READY</div>
+                        <div class="result-bonus" id="resultBonus">TO PLAY</div>
+                        <div class="result-description" id="resultDescription">
+                            Choose Answer Solo or Spin Wheel to begin!
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Timer Sections (stack with result when active) -->
+                <section class="timer-section rush-timer" id="rushTimerSection">
+                    <div class="section-header">
+                        <h2 class="section-title">RUSH TIME</h2>
+                    </div>
+                    <div class="timer-container">
+                        <div class="timer-display">
+                            <div class="timer-number" id="rushTimerNumber">5</div>
+                            <div class="timer-label">SECONDS</div>
+                        </div>
+                        <button class="timer-start-btn" id="rushTimerStartButton">
+                            START TIMER
+                        </button>
+                    </div>
+                </section>
+
+                <section class="timer-section extended-timer" id="extendedTimerSection">
+                    <div class="section-header">
+                        <h2 class="section-title">EXTENDED TIME</h2>
+                    </div>
+                    <div class="timer-container">
+                        <div class="timer-display">
+                            <div class="timer-number" id="extendedTimerNumber">10</div>
+                            <div class="timer-label">SECONDS</div>
+                        </div>
+                        <button class="timer-start-btn" id="extendedTimerStartButton">
+                            START TIMER
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Wheel (hidden when result/timer active) -->
                 <div class="wheel-container">
                     <div class="wheel-lights">
                         <div class="light-ring"></div>
@@ -311,51 +357,6 @@
             </div>
         </section>
         </div>
-
-        <!-- Result Display -->
-        <section class="result-section" id="resultSection">
-            <div class="section-header">
-                <h2 class="section-title">RESULT</h2>
-            </div>
-            <div class="result-content">
-                <div class="result-caller" id="resultCaller">READY</div>
-                <div class="result-bonus" id="resultBonus">TO PLAY</div>
-                <div class="result-description" id="resultDescription">
-                    Choose Answer Solo or Spin Wheel to begin!
-                </div>
-            </div>
-        </section>
-
-        <!-- Timer Section -->
-        <section class="timer-section rush-timer" id="rushTimerSection">
-            <div class="section-header">
-                <h2 class="section-title">RUSH TIME</h2>
-            </div>
-            <div class="timer-container">
-                <div class="timer-display">
-                    <div class="timer-number" id="rushTimerNumber">5</div>
-                    <div class="timer-label">SECONDS</div>
-                </div>
-                <button class="timer-start-btn" id="rushTimerStartButton">
-                    START TIMER
-                </button>
-            </div>
-        </section>
-
-        <section class="timer-section extended-timer" id="extendedTimerSection">
-            <div class="section-header">
-                <h2 class="section-title">EXTENDED TIME</h2>
-            </div>
-            <div class="timer-container">
-                <div class="timer-display">
-                    <div class="timer-number" id="extendedTimerNumber">10</div>
-                    <div class="timer-label">SECONDS</div>
-                </div>
-                <button class="timer-start-btn" id="extendedTimerStartButton">
-                    START TIMER
-                </button>
-            </div>
-        </section>
 
         <!-- Bonus Info -->
         <section class="bonus-info">
