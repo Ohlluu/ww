@@ -121,36 +121,49 @@ body {
     50% { opacity: 0.6; }
 }
 
-/* Main Game Container - Compact Layout */
+/* Main Game Container */
 .game-container {
-    max-width: 1600px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: var(--space-md);
-    height: calc(100vh - 140px); /* Fit within screen height minus header */
-    overflow: hidden;
+    padding: var(--space-lg);
 }
 
-.game-grid {
-    display: grid;
-    grid-template-columns: 300px 1fr 280px;
-    gap: var(--space-md);
-    height: 100%;
+/* Section Headers */
+.section-header {
+    text-align: center;
+    margin-bottom: var(--space-lg);
 }
 
-.left-column,
-.center-column,
-.right-column {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-    height: 100%;
+.section-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--accent-gold);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    position: relative;
 }
 
-/* Players Section - Compact */
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--gradient-gold);
+    border-radius: 2px;
+}
+
+/* Players Section */
+.players-section {
+    margin-bottom: var(--space-xl);
+}
+
 .players-grid {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
 }
 
 .player-card {
@@ -163,12 +176,6 @@ body {
     backdrop-filter: blur(10px);
 }
 
-.player-card.compact {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    text-align: left;
-}
 
 .player-card.active {
     border-color: var(--electric-cyan);
@@ -177,9 +184,9 @@ body {
 }
 
 .player-avatar {
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--space-sm);
 }
 
 .avatar-circle {
@@ -191,29 +198,26 @@ body {
     align-items: center;
     justify-content: center;
     font-weight: 900;
-    font-size: 0.9rem;
+    font-size: 1.5rem;
     color: var(--dark-bg);
 }
 
 .player-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
+    text-align: center;
 }
 
 .player-stats {
     display: flex;
-    gap: var(--space-sm);
-    align-items: center;
+    justify-content: space-between;
+    margin-top: var(--space-sm);
 }
 
 .player-name {
     font-family: 'Orbitron', monospace;
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--electric-cyan);
-    margin: 0;
+    margin-bottom: var(--space-sm);
 }
 
 .player-score {
@@ -275,18 +279,19 @@ body {
     font-weight: 600;
 }
 
-/* Wheel Section - Compact */
+/* Wheel Section */
 .wheel-section {
+    margin-bottom: var(--space-xl);
+    padding: var(--space-xl) 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1;
 }
 
 .wheel-container {
     position: relative;
-    width: 320px;
-    height: 320px;
+    width: 500px;
+    height: 500px;
 }
 
 .wheel-lights {
@@ -434,17 +439,14 @@ body {
     font-size: 0.6rem;
 }
 
-/* Controls Section - Compact */
+/* Controls Section */
 .controls-section {
     background: var(--card-bg);
     border-radius: var(--radius-md);
-    padding: var(--space-md);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-xl);
     text-align: center;
-}
-
-.right-column .controls-section {
-    background: transparent;
-    padding: var(--space-sm);
+    border: 2px solid var(--border-color);
 }
 
 .current-player {
@@ -532,20 +534,15 @@ body {
     color: var(--dark-bg);
 }
 
-/* Result Section - Compact */
+/* Result Section */
 .result-section {
     background: var(--card-bg);
     border-radius: var(--radius-md);
-    padding: var(--space-md);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-xl);
     text-align: center;
     border: 2px solid var(--accent-gold);
     display: none;
-}
-
-.result-section.compact {
-    display: block;
-    padding: var(--space-sm);
-    border-width: 1px;
 }
 
 .result-section.show {
@@ -579,26 +576,21 @@ body {
     line-height: 1.5;
 }
 
-/* Timer Section - Compact */
+/* Timer Section */
 .timer-section {
     background: var(--gradient-danger);
     border-radius: var(--radius-md);
-    padding: var(--space-md);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-xl);
     text-align: center;
     display: none;
 }
 
-.timer-section.compact {
-    display: block;
-    padding: var(--space-sm);
-    margin-bottom: var(--space-sm);
-}
-
-.timer-section.rush-timer.compact {
+.timer-section.rush-timer {
     background: var(--gradient-danger);
 }
 
-.timer-section.extended-timer.compact {
+.timer-section.extended-timer {
     background: var(--gradient-neon);
 }
 
@@ -638,9 +630,6 @@ body {
     line-height: 1;
 }
 
-.timer-section.compact .timer-number {
-    font-size: 2rem;
-}
 
 .timer-label {
     font-size: 1rem;
@@ -648,9 +637,6 @@ body {
     color: white;
 }
 
-.timer-section.compact .timer-label {
-    font-size: 0.7rem;
-}
 
 .timer-start-btn {
     background: white;
@@ -665,10 +651,6 @@ body {
     transition: all 0.3s ease;
 }
 
-.timer-start-btn.compact {
-    padding: 0.5rem 1rem;
-    font-size: 0.8rem;
-}
 
 .timer-start-btn:hover {
     transform: scale(1.1);
@@ -730,14 +712,14 @@ body {
     line-height: 1.4;
 }
 
-/* Scoring Section - Compact */
+/* Scoring Section */
 .scoring-section {
+    background: var(--card-bg);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-xl);
     text-align: center;
-}
-
-.scoring-section.compact {
-    display: none;
-    margin-bottom: var(--space-sm);
+    border: 2px solid var(--border-color);
 }
 
 .scoring-controls {
@@ -746,9 +728,6 @@ body {
     justify-content: center;
 }
 
-.scoring-section.compact .scoring-controls {
-    gap: var(--space-sm);
-}
 
 .score-btn {
     padding: var(--space-lg) var(--space-xl);
@@ -763,11 +742,6 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-.score-btn.compact {
-    padding: 0.7rem 1rem;
-    font-size: 0.8rem;
-    min-width: 80px;
-}
 
 .correct-btn {
     background: var(--gradient-neon);
@@ -794,32 +768,51 @@ body {
     font-size: 0.9rem;
 }
 
-/* Compact Bonus Info */
-.bonus-info-compact {
+/* Bonus Info */
+.bonus-info {
+    margin-bottom: var(--space-xl);
+}
+
+.bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-md);
+}
+
+.bonus-card {
     background: var(--card-bg);
     border-radius: var(--radius-md);
-    padding: var(--space-sm);
-    border: 1px solid var(--border-color);
+    padding: var(--space-lg);
+    text-align: center;
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
-.bonus-info-compact h4 {
+.bonus-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--electric-cyan);
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+}
+
+.bonus-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-sm);
+    display: block;
+}
+
+.bonus-name {
     font-family: 'Orbitron', monospace;
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--accent-gold);
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--space-sm);
 }
 
-.bonus-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-}
-
-.bonus-item {
-    font-size: 0.7rem;
+.bonus-desc {
+    font-size: 0.9rem;
     color: var(--text-secondary);
-    line-height: 1.3;
+    line-height: 1.4;
 }
 
 .bonus-item strong {
@@ -920,7 +913,9 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+
+/* Tablet Layout */
+@media (max-width: 1024px) {
     .header-content {
         flex-direction: column;
         gap: var(--space-sm);
@@ -932,48 +927,262 @@ body {
     }
     
     .players-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-sm);
     }
     
     .wheel-container {
-        width: 300px;
-        height: 300px;
+        width: 400px;
+        height: 400px;
     }
     
-    .caller-name {
+    .bonus-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile Layout */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: var(--space-xs);
+        text-align: center;
+    }
+    
+    .show-title {
+        font-size: clamp(1.2rem, 8vw, 2rem);
+    }
+    
+    .segment-title h2 {
+        font-size: clamp(1rem, 6vw, 1.5rem);
+    }
+    
+    .game-container {
+        padding: var(--space-sm);
+    }
+    
+    .players-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-xs);
+    }
+    
+    .player-card {
+        padding: var(--space-xs);
+    }
+    
+    .player-avatar {
+        width: 50px;
+        height: 50px;
+        margin: 0 auto var(--space-xs);
+    }
+    
+    .avatar-circle {
+        font-size: 1rem;
+    }
+    
+    .player-name {
+        font-size: 0.8rem;
+    }
+    
+    .score-number {
+        font-size: 1rem;
+    }
+    
+    .score-label, .spins-label {
         font-size: 0.5rem;
     }
     
+    .spins-count {
+        font-size: 0.9rem;
+    }
+    
+    .wheel-container {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .wheel {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .caller-name {
+        font-size: 0.4rem;
+    }
+    
     .bonus-text {
-        font-size: 0.35rem;
+        font-size: 0.3rem;
+    }
+    
+    .spin-button {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .spin-text {
+        font-size: 0.7rem;
+    }
+    
+    .spin-subtext {
+        font-size: 0.5rem;
     }
     
     .action-buttons {
         flex-direction: column;
-        align-items: center;
+        gap: var(--space-sm);
     }
     
-    .scoring-controls {
-        flex-direction: column;
-        align-items: center;
+    .action-btn {
+        min-width: 100%;
+        padding: var(--space-md);
     }
     
-    .bonus-grid {
-        grid-template-columns: 1fr;
+    .player-selector {
+        justify-content: center;
+        gap: var(--space-xs);
     }
-}
-
-@media (max-width: 480px) {
-    .wheel-container {
-        width: 250px;
-        height: 250px;
+    
+    .player-btn {
+        padding: var(--space-xs) var(--space-sm);
+        font-size: 0.7rem;
+    }
+    
+    .result-caller {
+        font-size: 1.5rem;
+    }
+    
+    .result-bonus {
+        font-size: 1rem;
     }
     
     .timer-number {
         font-size: 3rem;
     }
     
+    .timer-title {
+        font-size: 0.9rem;
+    }
+    
+    .timer-start-btn {
+        padding: var(--space-sm) var(--space-md);
+        font-size: 0.9rem;
+    }
+    
+    .scoring-controls {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+    
+    .score-btn {
+        min-width: 100%;
+        padding: var(--space-md);
+    }
+    
+    .bonus-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+    
+    .bonus-card {
+        padding: var(--space-sm);
+    }
+    
+    .bonus-icon {
+        font-size: 2rem;
+    }
+    
+    .bonus-name {
+        font-size: 1rem;
+    }
+    
+    .bonus-desc {
+        font-size: 0.8rem;
+    }
+}
+
+/* Small Mobile Layout */
+@media (max-width: 480px) {
+    .game-container {
+        padding: var(--space-xs);
+    }
+    
+    .players-grid {
+        gap: 0.25rem;
+    }
+    
+    .player-card {
+        padding: 0.5rem;
+    }
+    
+    .wheel-container {
+        width: 240px;
+        height: 240px;
+    }
+    
+    .player-avatar {
+        width: 40px;
+        height: 40px;
+        margin: 0 auto 0.25rem;
+    }
+    
+    .avatar-circle {
+        font-size: 0.8rem;
+    }
+    
+    .player-name {
+        font-size: 0.7rem;
+    }
+    
+    .score-number {
+        font-size: 0.9rem;
+    }
+    
+    .score-label, .spins-label {
+        font-size: 0.4rem;
+    }
+    
+    .spins-count {
+        font-size: 0.8rem;
+    }
+    
+    .caller-name {
+        font-size: 0.35rem;
+    }
+    
+    .bonus-text {
+        font-size: 0.25rem;
+    }
+    
+    .spin-button {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .spin-text {
+        font-size: 0.6rem;
+    }
+    
+    .spin-subtext {
+        font-size: 0.4rem;
+    }
+    
+    .timer-number {
+        font-size: 2.5rem;
+    }
+    
     .result-caller {
+        font-size: 1.2rem;
+    }
+    
+    .bonus-icon {
         font-size: 1.5rem;
+    }
+    
+    .bonus-name {
+        font-size: 0.9rem;
+    }
+    
+    .bonus-desc {
+        font-size: 0.7rem;
     }
 }
