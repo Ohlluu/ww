@@ -963,17 +963,17 @@ body {
     }
     
     .players-grid {
-        gap: var(--space-xs);
+        gap: 0.5rem;
     }
     
     .player-card {
-        padding: var(--space-xs);
+        padding: 0.5rem;
     }
     
     .player-avatar {
         width: 50px;
         height: 50px;
-        margin: 0 auto var(--space-xs);
+        margin: 0 auto 0.3rem;
     }
     
     .avatar-circle {
@@ -1107,11 +1107,11 @@ body {
     }
     
     .players-grid {
-        gap: 0.25rem;
+        gap: 0.2rem;
     }
     
     .player-card {
-        padding: 0.5rem;
+        padding: 0.3rem;
     }
     
     .wheel-container {
@@ -1122,7 +1122,7 @@ body {
     .player-avatar {
         width: 40px;
         height: 40px;
-        margin: 0 auto 0.25rem;
+        margin: 0 auto 0.2rem;
     }
     
     .avatar-circle {
